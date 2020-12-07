@@ -243,7 +243,7 @@ void free_image(IMAGE *image) {
     image = NULL;
 }
 
-int mine_implementation(char *name_in_put, char *name_ot_put, enum ERROR *type_of_error) {
+int do_mine_implementation(char *name_in_put, char *name_ot_put, enum ERROR *type_of_error) {
     FILE *file;
     if ((file = fopen(name_in_put, "rb")) == NULL) {
         fprintf(stdout, "Cannot open file. No file with name %s exists.", name_in_put);
