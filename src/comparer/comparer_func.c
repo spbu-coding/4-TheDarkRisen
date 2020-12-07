@@ -203,7 +203,7 @@ void free_image(IMAGE *image) {
     image = NULL;
 }
 
-void comparer_pixels(IMAGE *image, IMAGE *image2) {
+void do_comparer_pixels(IMAGE *image, IMAGE *image2) {
     int count = 0;
     if (image->meta_data_header->height > 0 && image2->meta_data_header->height > 0) {
         for (long long int i = 0; i < image->meta_data_header->height; i++) {
@@ -249,7 +249,7 @@ void comparer_pixels(IMAGE *image, IMAGE *image2) {
     }
 }
 
-int comparer_table(IMAGE *image, IMAGE *image2, enum ERROR *type_of_error) {
+int do_comparer_table(IMAGE *image, IMAGE *image2, enum ERROR *type_of_error) {
     for (long long int i = 0; i < image->meta_data_header->number_of_colors; i++) {
         if (image->color_table[i] != image2->color_table[i]) {
             *type_of_error = TABLE_COLOR_ERROR5;
